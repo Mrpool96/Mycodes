@@ -1,20 +1,26 @@
-import java.util.*;
-
-class ReverseString
+public class ReverseString
 {
-    public static void main(String args[])
+    public void reverseWordInMyString(String str)
     {
-        String original, reverse = "";
-        Scanner in = new Scanner(System.in);
+        String[] words = str.split(" ");
+        String reversedString = "";
+        for (int i = 0; i < words.length; i++)
+        {
+            String word = words[i];
+            String reverseWord = "";
+            for (int j = word.length()-1; j >= 0; j--)
+            {
 
-        System.out.println("Enter a string to reverse");
-        original = in.nextLine();
-
-        int length = original.length();
-
-        for (int i = length - 1 ; i >= 0 ; i--)
-            reverse = reverse + original.charAt(i);
-
-        System.out.println("Reverse of the string: " + reverse);
+                reverseWord = reverseWord + word.charAt(j);
+            }
+            reversedString = reversedString + reverseWord + " ";
+        }
+        System.out.println(str);
+        System.out.println(reversedString);
+    }
+    public static void main(String[] args)
+    {
+        ReverseString obj = new ReverseString();
+        obj.reverseWordInMyString("CodeKul Institute");
     }
 }
