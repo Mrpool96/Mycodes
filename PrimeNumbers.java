@@ -1,34 +1,26 @@
 import java.util.Scanner;
 
-public class PrimeNumbers
-    {
-        public static void main (String[] args)
-        {
-            Scanner scanner = new Scanner(System.in);
-            int i =0;
-            int num =0;
-            //Empty String
-            String  primeNumbers = "";
-            System.out.println("Enter the value of n:");
-            int n = scanner.nextInt();
-            scanner.close();
-            for (i = 1; i <= n; i++)
-            {
-                int counter=0;
-                for(num =i; num>=1; num--)
+public class PrimeNumbers {
+    public static void main(String[] args) {
+        int temp;
+        Boolean isPrime=true;
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter the Number:");
+        int num= scanner.nextInt();
+                scanner.close();
+                for(int i=2;i<=num/2;i++)
                 {
-                    if(i%num==0)
+                temp=num%i;
+                if(temp==0)
                     {
-                        counter = counter + 1;
+                        isPrime=false;
+                        break;
                     }
                 }
-                if (counter ==2)
-                {
-                    //Appended the Prime number to the String
-                    primeNumbers = primeNumbers + i + " ";
-                }
-            }
-            System.out.println("Prime numbers from 1 to n are :");
-            System.out.println(primeNumbers);
-        }
+                if(isPrime)
+                    System.out.println(num+"is a prime number");
+                else
+                    System.out.println(num+"is not a prime number");
+
     }
+}
